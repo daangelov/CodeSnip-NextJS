@@ -11,7 +11,7 @@ export default function RootLayout({children}: {
 }) {
   return (
     <html lang="bg">
-      <body className="flex flex-col h-screen">
+      <body className="flex flex-col h-screen bg-white">
         <Header />
         <main role="main" className="flex-grow">
           <TopSpotGradient />

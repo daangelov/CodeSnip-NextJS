@@ -7,7 +7,11 @@ import {Dialog} from '@headlessui/react'
 
 import {ROUTES} from '@/config/routes'
 
-const routes = Object.values(ROUTES);
+const routes = [
+  ROUTES.Home,
+  ROUTES.About,
+  ROUTES.Login,
+];
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)

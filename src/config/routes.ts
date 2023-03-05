@@ -6,7 +6,8 @@ interface Route {
 interface Routes {
   Home: Route,
   About: Route,
-  Login: Route;
+  Login: Route,
+  Signup: Route,
 }
 
 export const ROUTES: Routes = {
@@ -21,5 +22,9 @@ export const ROUTES: Routes = {
   Login: {
     name: 'Вход',
     href: '/login',
+  },
+  Signup: {
+    name: 'Регистрация',
+    href: '/signup',
   },
 };

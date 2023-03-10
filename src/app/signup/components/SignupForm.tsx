@@ -15,7 +15,7 @@ export default function SignupForm() {
         console.log('submit', values);
       }}>
       <Form className="space-y-4" method="POST">
-        <label htmlFor="email" className="sr-only">Имена</label>
+        <label htmlFor="names" className="sr-only">Имена</label>
         <Field
           id="names"
           name="names"

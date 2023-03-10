@@ -1,4 +1,5 @@
 import {CodeBracketIcon} from '@heroicons/react/24/outline';
+import SignupForm from '@/app/signup/components/SignupForm';
 
 export function Signup() {
   return (
@@ -11,6 +12,8 @@ export function Signup() {
           </h2>
         </div>
       </div>
+
+      <SignupForm />
     </div>
   )
 }

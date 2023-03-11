@@ -11,7 +11,7 @@ export default function TextField({...props}: TextFieldProps & InputHTMLAttribut
   const [field, meta] = useField(props);
 
   return (
-    <>
+    <div>
       <label htmlFor={props.id || props.name} className="sr-only">
         {props.placeholder}
       </label>
@@ -23,8 +23,8 @@ export default function TextField({...props}: TextFieldProps & InputHTMLAttribut
          focus:border-orange-500 focus:outline-orange-500"
       />
       <Show when={meta.touched && meta.error}>
-        <div className="error">{meta.error}</div>
+        <div className="text-sm text-red-700">{meta.error}</div>
       </Show>
-    </>
+    </div>
   )
 }

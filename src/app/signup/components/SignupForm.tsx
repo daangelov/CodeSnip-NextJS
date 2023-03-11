@@ -1,12 +1,21 @@
 "use client";
 
 import {Form, Formik} from 'formik';
+import * as Yup from 'yup';
+
 import TextField from '@/components/form/TextField';
 
 export default function SignupForm() {
   return (
     <Formik
       initialValues={{names: '', email: '', password: '', passwordRepeat: ''}}
+      validationSchema={Yup.object({
+        names: Yup.string().max(24, 'Максимум 24 символа').required('Полето е задължително'),
+        email: Yup.string().email('Невалиден Email адрес').required('Полето е задължително'),
+        password: Yup.string().required('Полето е задължително'),
+        passwordRepeat: Yup.string().oneOf([Yup.ref('password')], 'Паролите не съвпадат')
+          .required('Полето е задължително'),
+      })}
       onSubmit={(values) => {
         console.log('submit', values);
       }}>

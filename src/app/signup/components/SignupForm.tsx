@@ -1,62 +1,25 @@
 "use client";
 
-import {Field, Form, Formik} from 'formik';
+import {Form, Formik} from 'formik';
+import TextField from '@/components/form/TextField';
 
 export default function SignupForm() {
   return (
     <Formik
-      initialValues={{
-        names: '',
-        email: '',
-        password: '',
-        passwordRepeat: '',
-      }}
+      initialValues={{names: '', email: '', password: '', passwordRepeat: ''}}
       onSubmit={(values) => {
         console.log('submit', values);
       }}>
       <Form className="space-y-4" method="POST">
-        <label htmlFor="names" className="sr-only">Имена</label>
-        <Field
-          id="names"
-          name="names"
-          placeholder="Имена"
-          type="text"
-          required
-          className="mt-1 block w-full rounded-md border border-gray-300 shadow-sm
-            p-3 text-gray-900 placeholder-gray-500 focus:border-orange-500 focus:outline-orange-500"
-        />
-        <label htmlFor="email" className="sr-only">Имейл</label>
-        <Field
-          id="email"
-          name="email"
-          placeholder="Имейл адрес"
-          type="email"
-          autoComplete="email"
-          required
-          className="mt-1 block w-full rounded-md border border-gray-300 shadow-sm
-            p-3 text-gray-900 placeholder-gray-500 focus:border-orange-500 focus:outline-orange-500"
-        />
-        <label htmlFor="password" className="sr-only">Парола</label>
-        <Field
-          id="password"
-          name="password"
-          placeholder="Парола"
-          type="password"
-          autoComplete="current-password"
-          required
-          className="mt-1 block w-full rounded-md border border-gray-300 shadow-sm
-            p-3 text-gray-900 placeholder-gray-500 focus:border-orange-500 focus:outline-orange-500"
-        />
-        <label htmlFor="passwordRepeat" className="sr-only">Парола</label>
-        <Field
-          id="passwordRepeat"
+        <TextField name="names" type="text" placeholder="Имена" required />
+        <TextField name="email" type="email" placeholder="Имейл адрес" autoComplete="email" required />
+        <TextField name="password" type="password" placeholder="Парола" autoComplete="current-password" required />
+        <TextField
           name="passwordRepeat"
-          placeholder="Повтори парола"
           type="password"
+          placeholder="Повтори парола"
           autoComplete="current-password"
           required
-          className="mt-1 block w-full rounded-md border border-gray-300 shadow-sm
-            p-3 text-gray-900 placeholder-gray-500 focus:border-orange-500 focus:outline-orange-500"
         />
 
         <button type="submit"

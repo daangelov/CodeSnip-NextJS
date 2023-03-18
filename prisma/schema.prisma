@@ -21,13 +21,13 @@ model User {
 }
 
 model Snippet {
-  id          Int      @id @default(autoincrement())
-  userId      Int      @map("user_id")
-  title       String   @db.VarChar(64)
-  content     String   @db.Text
-  dateCreated DateTime @map("date_created") @db.DateTime(0)
-  dateUpdated DateTime @map("date_updated") @db.DateTime(0)
-  user        User     @relation(fields: [userId], references: [id])
+  id          Int       @id @default(autoincrement())
+  userId      Int       @map("user_id")
+  title       String    @db.VarChar(64)
+  content     String    @db.Text
+  dateCreated DateTime  @default(now()) @map("date_created") @db.DateTime(0)
+  dateUpdated DateTime? @map("date_updated") @db.DateTime(0)
+  user        User      @relation(fields: [userId], references: [id])
 
   @@index([userId], map: "snippets_user_id_fkey")
   @@map("snippets")

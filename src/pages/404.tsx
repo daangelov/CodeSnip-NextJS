@@ -1,4 +1,4 @@
-import '@/app/globals.css'
+import '@/styles/globals.css'
 
 import Link from 'next/link';
 import {useRouter} from 'next/navigation';
@@ -11,7 +11,7 @@ export default function NotFound() {
     <div className="h-screen w-screen">
       <main className="grid min-h-full place-items-center bg-white py-24 px-6 sm:py-32 lg:px-8">
         <div className="text-center">
-          <p className="text-5xl text-base font-semibold text-orange-600">404</p>
+          <p className="text-5xl font-semibold text-orange-600">404</p>
           <h1 className="mt-4 text-3xl font-bold tracking-tight text-gray-900">
             Страницата не е намерена
           </h1>

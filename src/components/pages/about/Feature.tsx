@@ -3,7 +3,7 @@ import React from 'react';
 type FeatureProps = {
   title: string,
   description: string,
-  icon: React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement> & { title?: string, titleId?: string }>,
+  icon: React.ForwardRefExoticComponent<React.PropsWithoutRef<React.SVGProps<SVGSVGElement>> & { title?: string, titleId?: string } & React.RefAttributes<SVGSVGElement>>,
 }
 
 export default function Feature({title, description, icon: Icon}: FeatureProps) {

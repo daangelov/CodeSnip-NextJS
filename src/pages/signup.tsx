@@ -1,7 +1,12 @@
 import {CodeBracketIcon} from '@heroicons/react/24/outline';
-import SignupForm from '@/app/signup/components/SignupForm';
+import SignupForm from '~/components/pages/signup/SignupForm';
 
-export function Signup() {
+Signup.metadata = {
+  title: 'Регистрация',
+  description: 'Регистрирай се сега',
+}
+
+export default function Signup() {
   return (
     <div className="flex flex-col min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="w-full max-w-md space-y-8">

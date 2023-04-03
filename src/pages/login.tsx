@@ -3,11 +3,15 @@ import Link from 'next/link';
 
 import {CodeBracketIcon} from '@heroicons/react/24/outline';
 
-import LoginForm from '@/app/login/components/LoginForm';
+import LoginForm from '~/components/pages/login/LoginForm';
+import {ROUTES} from '~/config/routes';
 
-import {ROUTES} from '@/config/routes';
+Login.metadata = {
+  title: 'Вход',
+  description: 'Регистрирай се и влез в платформта за да започнеш да я използваш',
+}
 
-export function Login() {
+export default function Login() {
   return (
     <div className="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="w-full max-w-md space-y-8">
@@ -21,7 +25,7 @@ export function Login() {
         <LoginForm />
 
         <p className="mt-1">
-          {' Нямаш акаунт? '}
+          {'Нямаш акаунт? '}
           <Link href={ROUTES.Signup.href} className="text-orange-500">Регистрирай се</Link>.
         </p>
 
@@ -50,8 +54,6 @@ export function Login() {
             Вход с Susi
           </button>
         </div>
-
-
       </div>
     </div>
   )

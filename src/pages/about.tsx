@@ -1,11 +1,16 @@
-import Features from '@/app/about/components/Features';
+import Features from '~/components/pages/about/Features';
 
-export function About() {
+About.metadata = {
+  title: 'За Проекта',
+  description: 'Накратко за проекта',
+}
+
+export default function About() {
   return (
-    <div className="py-24 sm:py-32">
+    <div className="py-24">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:text-center">
-          <h1 className="text-3xl font-semibold leading-8 tracking-tight text-orange-600">
+          <h1 className="text-4xl font-semibold leading-8 tracking-tight text-orange-600">
             CodeSnip
           </h1>
           <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">

@@ -1,5 +1,5 @@
 import {CogIcon, CursorArrowRaysIcon, ShareIcon, UsersIcon} from '@heroicons/react/24/outline';
-import Feature from '@/app/about/components/Feature';
+import Feature from '~/components/pages/about/Feature';
 
 const features = [
   {
@@ -34,7 +34,12 @@ export default function Features() {
   return (
     <dl className="grid max-w-xl grid-cols-1 gap-y-10 gap-x-8 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
       {features.map((feature, index) => (
-        <Feature key={index} title={feature.title} description={feature.description} icon={feature.icon} />
+        <Feature
+          key={index}
+          title={feature.title}
+          description={feature.description}
+          icon={feature.icon}
+        />
       ))}
     </dl>
   )

@@ -1,6 +1,6 @@
-import React, {InputHTMLAttributes} from 'react';
+import React, {type InputHTMLAttributes} from 'react';
 import {useField} from 'formik';
-import Show from '@/components/common/Show';
+import Show from '~/components/common/Show';
 
 interface TextFieldProps {
   id?: string,

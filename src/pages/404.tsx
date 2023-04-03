@@ -1,8 +1,6 @@
-import '@/styles/globals.css'
-
 import Link from 'next/link';
 import {useRouter} from 'next/navigation';
-import {ROUTES} from '@/config/routes';
+import {ROUTES} from '~/config/routes';
 
 export default function NotFound() {
   const router = useRouter();

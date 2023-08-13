@@ -1,4 +1,5 @@
 import {Form, Formik} from 'formik';
+import {signIn} from "next-auth/react";
 import * as Yup from 'yup';
 
 import TextField from '~/components/form/TextField';
@@ -14,7 +15,8 @@ export default function SignupForm() {
         passwordRepeat: Yup.string().oneOf([Yup.ref('password')], 'Паролите не съвпадат')
           .required('Полето е задължително'),
       })}
-      onSubmit={(values) => {
+      onSubmit={async (values) => {
+        await signIn('credentials', undefined, {...values})
         console.log('submit', values);
       }}>
       <Form className="space-y-4" method="POST">

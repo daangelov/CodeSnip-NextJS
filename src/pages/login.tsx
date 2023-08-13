@@ -1,14 +1,35 @@
 import Image from 'next/image';
 import Link from 'next/link';
-
+import {signIn} from "next-auth/react"
 import {CodeBracketIcon} from '@heroicons/react/24/outline';
+import {type GetServerSideProps} from "next";
 
+import {getServerAuthSession} from "~/server/auth";
 import LoginForm from '~/components/pages/login/LoginForm';
 import {ROUTES} from '~/config/routes';
 
 Login.metadata = {
   title: 'Вход',
   description: 'Регистрирай се и влез в платформта за да започнеш да я използваш',
+}
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const session = await getServerAuthSession(context);
+
+  if (session) {
+    return {
+      redirect: {
+        destination: ROUTES.Home.href,
+        permanent: false,
+      }
+    }
+  }
+
+  return {
+    props: {
+      session,
+    },
+  }
 }
 
 export default function Login() {
@@ -31,6 +52,7 @@ export default function Login() {
 
         <div className="space-y-2 mt-5">
           <button type="button"
+                  onClick={() => void signIn('github')}
                   className="flex justify-center items-center gap-2
                   w-full rounded-md bg-slate-700 px-3.5 py-2.5
                   text-white shadow-sm
@@ -42,6 +64,8 @@ export default function Login() {
             <Image src="/images/github-mark-white.svg" alt="Github Icon" width={18} height={18} />
             Вход с GitHub
           </button>
+
+          <button onClick={() => void signIn()}>Press</button>
 
           <button type="button"
                   className="w-full rounded-md px-3.5 py-2

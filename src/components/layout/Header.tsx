@@ -1,5 +1,6 @@
 import {useState} from 'react'
 import Link from 'next/link'
+import {signOut, useSession} from "next-auth/react";
 import {Bars3Icon, XMarkIcon} from '@heroicons/react/24/outline'
 import {Dialog} from '@headlessui/react'
 
@@ -13,6 +14,8 @@ const routes = [
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
+  const {data: session} = useSession();
 
   return (
     <header>
@@ -40,6 +43,12 @@ export default function Header() {
                 {route.name}
               </Link>
             ))}
+            {session && (
+              <>
+                Signed in as {session.user.email} <br />
+                <button onClick={() => void signOut()}>Sign out</button>
+              </>
+            )}
           </div>
         </nav>
         <Dialog as="div" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
